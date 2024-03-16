@@ -25,22 +25,24 @@ INSTALLER_NAME[4]=https://tlauncher.org/jar
 
 read INSTALLER
 
-if [ $INSTALLER -eq 1 ];
-then
+case $INSTALLER in
+	"1")
 	echo "Minecraft Client sendo instalado..."
-elif [ $INSTALLER -eq 2 ];
-then
+	;;
+	"2")
 	echo "Lunar Client sendo instalado..."
-elif [ $INSTALLER -eq 3 ];
-then
+	;;
+	"3")
 	echo "Badlion Client sendo instalado..."
-else
+	;;
+	"4")
 	echo "TLauncher sendo instalado..."
-fi
+	;;
+esac
+	
 
-xdg-open ${INSTALLER_NAME[$INSTALLER]}
+wget ${INSTALLER_NAME[$INSTALLER]}
 sleep 10s
 echo "O terminal já pode ser fechado..."
 exit
-
 
