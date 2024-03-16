@@ -1,0 +1,46 @@
+#!/bin/bash
+
+echo ""
+echo "[RedeBloco] Instalador rápido"
+echo "RedeBloco - todos os direitos reservados."
+echo ""
+echo "Insira o número do instalador:"
+echo "1. Minecraft Oficial"
+echo "> Redireciona ao site oficial."
+echo ""
+echo "2. Lunar Client"
+echo "> Redireciona ao Client do Lunar."
+echo ""
+echo "3. Badlion Client"
+echo "> Redireciona ao Client do Badlion."
+echo ""
+echo "4. TLauncher"
+echo "> Redireciona ao Launcher do TLauncher."
+echo ""
+
+INSTALLER_NAME[1]=https://aur.archlinux.org/packages/minecraft-launcher
+INSTALLER_NAME[2]=https://launcherupdates.lunarclientcdn.com/Lunar%20Client-3.2.3.AppImage
+INSTALLER_NAME[3]=https://www.badlion.net/download/client/latest/linux
+INSTALLER_NAME[4]=https://tlauncher.org/jar
+
+read INSTALLER
+
+if [ $INSTALLER -eq 1 ];
+then
+	echo "Minecraft Client sendo instalado..."
+elif [ $INSTALLER -eq 2 ];
+then
+	echo "Lunar Client sendo instalado..."
+elif [ $INSTALLER -eq 3 ];
+then
+	echo "Badlion Client sendo instalado..."
+else
+	echo "TLauncher sendo instalado..."
+fi
+
+xdg-open ${INSTALLER_NAME[$INSTALLER]}
+sleep 10s
+echo "O terminal já pode ser fechado..."
+exit
+
+
